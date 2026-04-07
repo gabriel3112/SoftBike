@@ -1,0 +1,126 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --preto: #111111;
+  --laranja: #FF6B00;
+  --branco: #FFFFFF;
+  --cinza: #F4F4F4;
+  --texto: #222222;
+}
+
+body {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  background: var(--branco);
+  color: var(--texto);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── nav padrão ── */
+nav {
+  background: var(--preto);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: var(--laranja);
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.logo span { color: var(--branco); }
+
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links a { color: var(--branco); text-decoration: none; font-size: 15px; transition: 0.2s; }
+.nav-links a:hover, .nav-links a.ativo { color: var(--laranja); }
+
+/* ── hero, cabeçalho das paginas ── */
+.hero, .titulo {
+  background: var(--cinza);
+  padding: 60px 20px;
+  text-align: center;
+}
+.hero h1, .titulo h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.hero span, .titulo span { color: var(--laranja); }
+
+/* ── layout unificado (Serve para Produtos, Galeria, Links, etc) ── */
+.grid, .produtos-grid, .depoimentos-grid, .briefing-grid, .links-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+/* ── Cartões para formatação das imagens ── */
+.produto-card, .foto, .briefing-card, .depoimento, .link-card {
+  background: var(--branco);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.produto-card:hover, .foto:hover, .link-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.foto img, .produto-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.produto-info, .card-body, .foto-legenda, .link-info { padding: 20px; }
+
+/* ── Final da pagina ── */
+footer {
+  background: var(--preto);
+  color: var(--branco);
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: auto; 
+}
+footer h4 { color: var(--laranja); margin-bottom: 10px; }
+footer ul { list-style: none; margin-bottom: 20px; }
+footer ul li { font-size: 14px; color: #aaa; }
+
+/* ── FORMATAÇÃO PARA OS LINKS ── */
+.link-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-card .card-body h3 {
+  color: var(--laranja);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.link-card .card-body p {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.link-url {
+  display: block;
+  font-size: 0.8rem;
+  color: #888;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  word-break: break-all;
+}
